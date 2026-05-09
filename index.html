@@ -6,7 +6,6 @@
 <meta name="format-detection" content="telephone=no">
 <meta property="og:title" content="母亲节快乐">
 <meta property="og:description" content="献给最爱的妈妈，祝您节日快乐">
-<meta property="og:image" content="">
 <meta property="og:type" content="website">
 <title>母亲节快乐</title>
 <style>
@@ -35,7 +34,6 @@ body {
   min-height: 100vh;
 }
 
-/* ===== 花瓣画布 ===== */
 #petalCanvas {
   position: fixed;
   top: 0; left: 0;
@@ -52,15 +50,14 @@ body {
   padding-bottom: 40px;
 }
 
-/* ===== 顶部引导条 ===== */
 .top-hint {
   text-align: center;
   padding: 12px;
   font-size: 13px;
   color: var(--text-secondary);
+  letter-spacing: 1px;
   opacity: 0;
   animation: fadeIn 0.6s 2s ease both;
-  letter-spacing: 1px;
 }
 
 /* ===== Hero ===== */
@@ -72,27 +69,22 @@ body {
   position: relative;
   overflow: hidden;
 }
-
 .hero::before {
   content: '';
   position: absolute;
   top: -80px; left: -40px;
   width: 260px; height: 260px;
   background: radial-gradient(circle, rgba(244,200,200,0.35) 0%, transparent 70%);
-  border-radius: 50%;
-  z-index: 0;
+  border-radius: 50%; z-index: 0;
 }
-
 .hero::after {
   content: '';
   position: absolute;
   bottom: -40px; right: -30px;
   width: 180px; height: 180px;
   background: radial-gradient(circle, rgba(232,213,176,0.30) 0%, transparent 70%);
-  border-radius: 50%;
-  z-index: 0;
+  border-radius: 50%; z-index: 0;
 }
-
 .hero-badge {
   background: linear-gradient(135deg, var(--rose-light), #FDE8E9);
   border: 1px solid rgba(212,136,138,0.2);
@@ -106,7 +98,6 @@ body {
   opacity: 0;
   animation: fadeIn 0.6s 0.2s ease both;
 }
-
 .hero-subtitle {
   font-size: 15px;
   color: var(--text-secondary);
@@ -116,18 +107,11 @@ body {
   opacity: 0;
   animation: fadeIn 0.6s 0.4s ease both;
 }
-
 .hero-title {
-  display: flex;
-  gap: 3px;
-  z-index: 1;
-  margin-bottom: 24px;
+  display: flex; gap: 3px; z-index: 1; margin-bottom: 24px;
 }
-
 .hero-title span {
-  font-size: 50px;
-  font-weight: 700;
-  color: var(--rose-deep);
+  font-size: 50px; font-weight: 700; color: var(--rose-deep);
   opacity: 0;
   animation: charReveal 0.5s cubic-bezier(.22,.61,.36,1) forwards;
   text-shadow: 0 2px 6px rgba(184,97,100,0.15);
@@ -143,55 +127,22 @@ body {
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* ===== 康乃馨 ===== */
-.flower-wrap {
-  z-index: 1;
-  animation: floatFlower 3s ease-in-out infinite;
-}
-
+/* 康乃馨 */
+.flower-wrap { z-index: 1; animation: floatFlower 3s ease-in-out infinite; }
 @keyframes floatFlower {
-  0%, 100% { transform: translateY(0); }
+  0%,100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
-
-.carnation {
-  position: relative;
-  width: 72px; height: 110px;
-}
-
-.petal {
-  position: absolute;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #F2A6A9, #E88186);
-}
+.carnation { position: relative; width: 72px; height: 110px; }
+.petal { position: absolute; border-radius: 50%; background: linear-gradient(135deg, #F2A6A9, #E88186); }
 .p1 { width: 26px; height: 26px; top: 0; left: 23px; }
 .p2 { width: 24px; height: 24px; top: 3px; left: 10px; }
 .p3 { width: 24px; height: 24px; top: 3px; right: 10px; }
 .p4 { width: 22px; height: 22px; top: 12px; left: 5px; }
 .p5 { width: 22px; height: 22px; top: 12px; right: 5px; }
-
-.petal-center {
-  position: absolute;
-  width: 14px; height: 14px;
-  background: radial-gradient(circle, #FDE0D3, #F5C4B8);
-  border-radius: 50%;
-  top: 10px; left: 29px;
-}
-
-.stem {
-  position: absolute;
-  width: 3px; height: 50px;
-  background: linear-gradient(to bottom, #8FBC8F, #7AAA7A);
-  border-radius: 2px;
-  top: 36px; left: 34px;
-}
-
-.leaf {
-  position: absolute;
-  width: 20px; height: 10px;
-  background: linear-gradient(135deg, #9DC89D, #8FBC8F);
-  border-radius: 50%;
-}
+.petal-center { position: absolute; width: 14px; height: 14px; background: radial-gradient(circle, #FDE0D3, #F5C4B8); border-radius: 50%; top: 10px; left: 29px; }
+.stem { position: absolute; width: 3px; height: 50px; background: linear-gradient(to bottom, #8FBC8F, #7AAA7A); border-radius: 2px; top: 36px; left: 34px; }
+.leaf { position: absolute; width: 20px; height: 10px; background: linear-gradient(135deg, #9DC89D, #8FBC8F); border-radius: 50%; }
 .l1 { top: 48px; left: 16px; transform: rotate(-30deg); }
 .l2 { top: 60px; right: 16px; transform: rotate(25deg); }
 
@@ -201,7 +152,6 @@ body {
   opacity: 0;
   animation: fadeInUp 0.7s 1.1s ease both;
 }
-
 .card-inner {
   background: var(--card-bg);
   border-radius: 16px;
@@ -210,7 +160,6 @@ body {
   position: relative;
   overflow: hidden;
 }
-
 .card-inner::before {
   content: '';
   position: absolute;
@@ -218,7 +167,6 @@ body {
   height: 3px;
   background: linear-gradient(90deg, var(--rose-light), var(--gold-light), var(--rose-light));
 }
-
 .card-ribbon {
   position: absolute;
   top: -3px; right: 22px;
@@ -235,215 +183,170 @@ body {
   border-right: 10px solid transparent;
   border-top: 7px solid var(--rose-deep);
 }
-
 .card-title {
-  font-size: 19px;
-  font-weight: 600;
-  color: var(--rose-deep);
-  display: block;
-  margin-bottom: 14px;
+  font-size: 19px; font-weight: 600; color: var(--rose-deep);
+  display: block; margin-bottom: 14px;
 }
-
 .card-body {
-  font-size: 15px;
-  line-height: 1.9;
-  color: var(--text);
-  display: block;
+  font-size: 15px; line-height: 1.9; color: var(--text); display: block;
 }
-
 .card-divider {
   width: 32px; height: 1px;
   background: var(--rose-light);
   margin: 18px 0 14px;
 }
-
 .card-sign {
-  font-size: 13px;
-  color: var(--text-secondary);
-  font-style: italic;
-  display: block;
+  font-size: 13px; color: var(--text-secondary);
+  font-style: italic; display: block;
 }
 
-/* ===== 区域标题 ===== */
-.section-head {
-  text-align: center;
-  padding: 12px 20px 18px;
-  opacity: 0;
-  animation: fadeIn 0.6s 0.3s ease both;
-}
-.section-head h2 {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  margin-bottom: 4px;
-}
-.section-head p {
-  font-size: 13px;
-  color: var(--text-secondary);
-  letter-spacing: 1px;
-}
-
-/* ===== 记忆画廊 ===== */
-.gallery {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  padding: 0 18px 26px;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-}
-.gallery::-webkit-scrollbar { display: none; }
-
-.memory-card {
-  min-width: 140px;
-  height: 170px;
-  background: var(--card-bg);
-  border-radius: 14px;
-  padding: 20px 14px;
-  box-shadow: 0 2px 12px rgba(180,130,130,0.08);
+/* ===== 倒计时区域 ===== */
+.countdown-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  flex-shrink: 0;
-}
-.memory-card:active { transform: scale(0.96); }
-
-.memory-card .icon { font-size: 34px; margin-bottom: 8px; }
-.memory-card .title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-.memory-card .desc { font-size: 11px; color: var(--text-secondary); text-align: center; line-height: 1.5; }
-
-/* ===== 心愿清单 ===== */
-.wish-list {
-  padding: 0 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 28px;
-}
-
-.wish-item {
-  display: flex;
-  align-items: center;
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 16px 14px;
-  box-shadow: 0 2px 12px rgba(180,130,130,0.08);
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(.22,.61,.36,1);
-}
-.wish-item.done {
-  opacity: 0.5;
-  background: #FDF7F5;
-}
-
-.wish-check {
-  width: 26px; height: 26px;
-  border-radius: 50%;
-  border: 2px solid var(--rose-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 12px;
-  flex-shrink: 0;
-  transition: all 0.3s;
-  font-size: 14px;
-  color: #fff;
-}
-.wish-check.done {
-  background: linear-gradient(135deg, var(--rose), var(--rose-deep));
-  border-color: var(--rose-deep);
-}
-
-.wish-body { flex: 1; }
-.wish-text { font-size: 15px; font-weight: 500; display: block; margin-bottom: 2px; }
-.wish-hint { font-size: 11px; color: var(--text-secondary); }
-
-.wish-heart {
-  font-size: 17px;
-  color: var(--rose-light);
-  transition: all 0.3s;
-}
-.wish-heart.done { color: var(--rose); transform: scale(1.2); }
-
-/* ===== 分享卡片选择 ===== */
-.share-cards {
-  display: flex;
-  gap: 10px;
-  padding: 0 18px 22px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.share-card {
-  width: 110px; height: 140px;
-  border-radius: 12px;
-  overflow: hidden;
+  min-height: 460px;
   position: relative;
+  padding: 20px;
+}
+
+.countdown-number {
+  font-size: 100px;
+  font-weight: 900;
+  color: var(--rose-deep);
+  opacity: 0;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0.3);
+  transition: all 0.5s cubic-bezier(.22,.61,.36,1);
+}
+.countdown-number.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  animation: countPop 0.5s cubic-bezier(.22,.61,.36,1);
+}
+.countdown-number.fadeout {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.5);
+  transition: all 0.4s ease-in;
+}
+
+@keyframes countPop {
+  0% { transform: translate(-50%, -50%) scale(0.3); }
+  60% { transform: translate(-50%, -50%) scale(1.15); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* ===== 祝福文字跳动 ===== */
+.blessing-words {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 14px 10px;
-  box-shadow: 0 2px 12px rgba(180,130,130,0.08);
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(.22,.61,.36,1);
-  background: var(--card-bg);
+  gap: 28px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
-.share-card.selected {
-  border-color: var(--rose);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(180,130,130,0.2);
+.blessing-words.visible {
+  opacity: 1;
 }
 
-.share-card-bg {
+.blessing-word {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--rose-deep);
+  opacity: 0;
+  transform: translateY(40px);
+  letter-spacing: 4px;
+  text-shadow: 0 2px 8px rgba(184,97,100,0.12);
+}
+.blessing-word.bounce-in {
+  animation: bounceIn 0.7s cubic-bezier(.22,.61,.36,1) forwards;
+}
+
+@keyframes bounceIn {
+  0% { opacity: 0; transform: translateY(40px) scale(0.8); }
+  50% { opacity: 1; transform: translateY(-10px) scale(1.05); }
+  70% { transform: translateY(4px) scale(0.97); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.blessing-word.highlight {
+  font-size: 44px;
+  background: linear-gradient(135deg, #E8989B, #D07074);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== 落心区域 ===== */
+.hearts-fall-area {
   position: absolute;
   inset: 0;
-  opacity: 0.1;
-  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-.share-card .s-text {
-  position: relative; z-index: 1;
-  font-size: 15px; font-weight: 600;
-  text-align: center; margin-bottom: 4px;
-}
-.share-card .s-sub {
-  position: relative; z-index: 1;
-  font-size: 11px; color: var(--text-secondary);
-  text-align: center;
+.falling-heart {
+  position: absolute;
+  font-size: 24px;
+  color: var(--rose);
+  animation: heartFall linear forwards;
+  pointer-events: none;
 }
 
-/* ===== 分享按钮 ===== */
-.share-btn {
-  display: block;
-  width: calc(100% - 36px);
-  margin: 0 18px 28px;
-  height: 48px;
-  border-radius: 24px;
-  background: linear-gradient(135deg, #E8989B, #D07074);
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(200,120,125,0.3);
-  transition: all 0.3s;
+@keyframes heartFall {
+  0% {
+    transform: translateY(-60px) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg) scale(0.3);
+    opacity: 0;
+  }
 }
-.share-btn:active { transform: scale(0.97); opacity: 0.9; }
-.share-btn:disabled { background: #DDD; color: #AAA; box-shadow: none; }
+
+/* ===== 结尾大爱心 ===== */
+.big-heart-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.8s cubic-bezier(.22,.61,.36,1);
+}
+.big-heart-wrap.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.big-heart {
+  font-size: 100px;
+  animation: bigHeartPulse 1.2s ease-in-out infinite;
+  filter: drop-shadow(0 4px 16px rgba(184,97,100,0.3));
+}
+
+@keyframes bigHeartPulse {
+  0%,100% { transform: scale(1); }
+  15% { transform: scale(1.18); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.12); }
+  60% { transform: scale(1); }
+}
 
 /* ===== 底部 ===== */
 .footer {
   text-align: center;
-  padding: 36px 20px 30px;
+  padding: 40px 20px 30px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.footer.show {
+  opacity: 1;
 }
 .footer h3 {
-  font-size: 20px;
+  font-size: 22px;
   color: var(--rose-deep);
   letter-spacing: 2px;
   margin-bottom: 10px;
@@ -455,7 +358,7 @@ body {
   margin-bottom: 8px;
 }
 .footer .hearts span {
-  font-size: 20px;
+  font-size: 22px;
   color: var(--rose);
   animation: heartBeat 1.6s ease-in-out infinite;
 }
@@ -479,39 +382,30 @@ body {
   position: fixed;
   top: 50%; left: 50%;
   transform: translate(-50%,-50%) scale(0.8);
-  background: rgba(92,61,63,0.92);
-  color: #fff;
-  padding: 12px 26px;
-  border-radius: 20px;
-  font-size: 14px;
-  letter-spacing: 1px;
+  background: rgba(92,61,63,0.92); color: #fff;
+  padding: 12px 26px; border-radius: 20px;
+  font-size: 14px; letter-spacing: 1px;
   z-index: 300;
-  opacity: 0;
-  pointer-events: none;
+  opacity: 0; pointer-events: none;
   transition: all 0.3s cubic-bezier(.22,.61,.36,1);
   white-space: nowrap;
 }
 .toast.show { opacity: 1; transform: translate(-50%,-50%) scale(1); }
 
-/* ===== 微信分享提示层 ===== */
+/* 微信分享引导 */
 .share-overlay {
-  position: fixed;
-  inset: 0;
+  position: fixed; inset: 0;
   background: rgba(0,0,0,0.7);
   z-index: 400;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  opacity: 0;
-  pointer-events: none;
+  align-items: flex-start; justify-content: flex-end;
+  opacity: 0; pointer-events: none;
   transition: opacity 0.3s;
 }
 .share-overlay.show { opacity: 1; pointer-events: auto; }
 .share-overlay .arrow {
   margin: 10px 16px 0 0;
-  font-size: 15px;
-  color: #fff;
-  text-align: right;
+  font-size: 15px; color: #fff; text-align: right;
 }
 .share-overlay .arrow .icon { font-size: 48px; display: block; }
 
@@ -519,7 +413,6 @@ body {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -564,25 +457,39 @@ body {
     </div>
   </div>
 
-  <!-- 美好瞬间 -->
-  <div class="section-head"><h2>美好瞬间</h2><p>那些被时光铭记的温暖</p></div>
-  <div class="gallery" id="gallery"></div>
+  <!-- ===== 倒计时 + 祝福文字 ===== -->
+  <div class="countdown-section" id="countdownSection">
 
-  <!-- 心愿清单 -->
-  <div class="section-head"><h2>今日心愿</h2><p>为妈妈做这些小事</p></div>
-  <div class="wish-list" id="wishList"></div>
+    <!-- 爱心飘落区域 -->
+    <div class="hearts-fall-area" id="heartsFallArea"></div>
 
-  <!-- 发送祝福 -->
-  <div class="section-head"><h2>发送祝福</h2><p>选一张卡片分享给妈妈</p></div>
-  <div class="share-cards" id="shareCards"></div>
-  <button class="share-btn" id="sendBtn" disabled>💝 发送给妈妈</button>
+    <!-- 倒计时数字 -->
+    <div class="countdown-number" id="countNum3">3</div>
+    <div class="countdown-number" id="countNum2">2</div>
+    <div class="countdown-number" id="countNum1">1</div>
+
+    <!-- 祝福文字 -->
+    <div class="blessing-words" id="blessingWords">
+      <span class="blessing-word">妈妈</span>
+      <span class="blessing-word">健康顺遂</span>
+      <span class="blessing-word">平平安安</span>
+      <span class="blessing-word highlight">母亲节快乐</span>
+    </div>
+
+    <!-- 大爱心 -->
+    <div class="big-heart-wrap" id="bigHeartWrap">
+      <span class="big-heart">❤️</span>
+    </div>
+
+  </div>
 
   <!-- 底部 -->
-  <div class="footer">
+  <div class="footer" id="footer">
     <h3>妈妈，我爱你</h3>
     <div class="hearts"><span>♥</span><span>♥</span><span>♥</span></div>
     <span class="sub">不止今天，每一天</span>
   </div>
+
 </div>
 
 <!-- Toast -->
@@ -657,132 +564,6 @@ const greetings = [
 document.getElementById('greetingText').textContent =
   greetings[Math.floor(Math.random() * greetings.length)];
 
-// ===== 美好瞬间 =====
-const memories = [
-  { icon: '🍼', title: '儿时呵护', desc: '用温柔的手牵我走过每一步' },
-  { icon: '📚', title: '谆谆教诲', desc: '每一句话都是人生路上的灯' },
-  { icon: '🍲', title: '家的味道', desc: '厨房里的香味是我最深的依恋' },
-  { icon: '🤗', title: '温暖怀抱', desc: '无论多大你的拥抱永远最安全' },
-  { icon: '🌹', title: '感恩有你', desc: '世界上最美的词就是妈妈' },
-];
-const galleryEl = document.getElementById('gallery');
-memories.forEach(m => {
-  const div = document.createElement('div');
-  div.className = 'memory-card';
-  div.innerHTML = `<span class="icon">${m.icon}</span><span class="title">${m.title}</span><span class="desc">${m.desc}</span>`;
-  div.onclick = () => showToast(m.title + ' — ' + m.desc);
-  galleryEl.appendChild(div);
-});
-
-// ===== 心愿清单 =====
-const wishes = [
-  { id: 1, text: '给妈妈一个大大的拥抱', hint: '抱紧一点哦 🤗', done: false },
-  { id: 2, text: '为妈妈做一顿饭', hint: '用心做出家的味道 🍳', done: false },
-  { id: 3, text: '陪妈妈散散步', hint: '聊聊家常，说说心里话 🌿', done: false },
-  { id: 4, text: '送妈妈一束康乃馨', hint: '最美的花送给最美的人 💐', done: false },
-  { id: 5, text: '对妈妈说"我爱你"', hint: '这三个字永远不嫌多 ❤️', done: false },
-];
-const wishListEl = document.getElementById('wishList');
-wishes.forEach(w => {
-  const div = document.createElement('div');
-  div.className = 'wish-item';
-  div.innerHTML = `
-    <div class="wish-check"></div>
-    <div class="wish-body"><span class="wish-text">${w.text}</span><span class="wish-hint">${w.hint}</span></div>
-    <span class="wish-heart">♥</span>
-  `;
-  div.onclick = () => {
-    w.done = !w.done;
-    const check = div.querySelector('.wish-check');
-    const heart = div.querySelector('.wish-heart');
-    if (w.done) {
-      div.classList.add('done');
-      check.classList.add('done');
-      check.textContent = '✓';
-      heart.classList.add('done');
-      showToast('太棒了！妈妈一定很开心 ✨');
-    } else {
-      div.classList.remove('done');
-      check.classList.remove('done');
-      check.textContent = '';
-      heart.classList.remove('done');
-    }
-    if (wishes.every(ww => ww.done)) {
-      setTimeout(() => showToast('全部完成！你是最棒的孩子 🌟'), 600);
-    }
-  };
-  wishListEl.appendChild(div);
-});
-
-// ===== 分享卡片 =====
-const shareCards = [
-  { id: 1, text: '妈妈，我爱你', sub: '每一天都爱你', color: '#D4888A' },
-  { id: 2, text: '你是最好的妈妈', sub: '感谢你的付出', color: '#C9A96E' },
-  { id: 3, text: '永远做你的宝贝', sub: '有你的地方就是家', color: '#E8A0A4' },
-  { id: 4, text: '妈妈辛苦了', sub: '今天请好好休息', color: '#B8C9A9' },
-];
-let selectedIdx = -1;
-const shareCardsEl = document.getElementById('shareCards');
-shareCards.forEach((sc, i) => {
-  const div = document.createElement('div');
-  div.className = 'share-card';
-  div.innerHTML = `
-    <div class="share-card-bg" style="background:${sc.color}"></div>
-    <span class="s-text">${sc.text}</span><span class="s-sub">${sc.sub}</span>
-  `;
-  div.onclick = () => {
-    const was = selectedIdx === i;
-    document.querySelectorAll('.share-card').forEach(c => c.classList.remove('selected'));
-    if (!was) {
-      div.classList.add('selected');
-      selectedIdx = i;
-      document.getElementById('sendBtn').disabled = false;
-    } else {
-      selectedIdx = -1;
-      document.getElementById('sendBtn').disabled = true;
-    }
-  };
-  shareCardsEl.appendChild(div);
-});
-
-// ===== 发送按钮 =====
-document.getElementById('sendBtn').onclick = () => {
-  if (selectedIdx >= 0) {
-    const card = shareCards[selectedIdx];
-    // 尝试调用微信分享接口，不行则显示引导
-    showShareGuide(card);
-  }
-};
-
-function showShareGuide(card) {
-  // 检测是否在微信中
-  const ua = navigator.userAgent.toLowerCase();
-  if (ua.indexOf('micromessenger') > -1) {
-    document.getElementById('shareOverlay').classList.add('show');
-    // 自动3秒后消失
-    setTimeout(() => {
-      document.getElementById('shareOverlay').classList.remove('show');
-    }, 4000);
-  } else {
-    // 不在微信中，尝试 Web Share API
-    if (navigator.share) {
-      navigator.share({
-        title: '母亲节快乐',
-        text: `💝 ${card.text} — ${card.sub}`,
-        url: window.location.href,
-      }).catch(() => {});
-    } else {
-      // 复制链接
-      const url = window.location.href;
-      navigator.clipboard.writeText(url).then(() => {
-        showToast('链接已复制，去微信粘贴发送吧 💝');
-      }).catch(() => {
-        showToast('请截图分享给妈妈吧 📸');
-      });
-    }
-  }
-}
-
 // ===== Toast =====
 let toastTimer;
 function showToast(text) {
@@ -793,9 +574,145 @@ function showToast(text) {
   toastTimer = setTimeout(() => t.classList.remove('show'), 2000);
 }
 
-// ===== 微信 JS-SDK（可选，预留给公众号配置）=====
-// 如果有公众号 AppID，可在此引入 jweixin-1.6.0.js 并配置 wx.config
-// 实现 wx.updateAppMessageShareData 等分享接口
+// ===== 微信分享 =====
+function showShareGuide() {
+  const ua = navigator.userAgent.toLowerCase();
+  if (ua.indexOf('micromessenger') > -1) {
+    document.getElementById('shareOverlay').classList.add('show');
+    setTimeout(() => document.getElementById('shareOverlay').classList.remove('show'), 4000);
+  } else if (navigator.share) {
+    navigator.share({
+      title: '母亲节快乐',
+      text: '💝 母亲节快乐！献给最爱的妈妈',
+      url: window.location.href,
+    }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      showToast('链接已复制，去微信粘贴发送吧 💝');
+    }).catch(() => showToast('请截图分享给妈妈吧 📸'));
+  }
+}
+
+// ===== 倒计时 + 文字动画 =====
+function startCountdown() {
+  const num3 = document.getElementById('countNum3');
+  const num2 = document.getElementById('countNum2');
+  const num1 = document.getElementById('countNum1');
+  const blessingWords = document.getElementById('blessingWords');
+  const heartsArea = document.getElementById('heartsFallArea');
+  const bigHeartWrap = document.getElementById('bigHeartWrap');
+  const footer = document.getElementById('footer');
+
+  // 显示 3
+  setTimeout(() => {
+    num3.classList.add('show');
+  }, 200);
+
+  // 3消失, 显示2
+  setTimeout(() => {
+    num3.classList.add('fadeout');
+    setTimeout(() => {
+      num3.classList.remove('show', 'fadeout');
+      num2.classList.add('show');
+    }, 350);
+  }, 1200);
+
+  // 2消失, 显示1
+  setTimeout(() => {
+    num2.classList.add('fadeout');
+    setTimeout(() => {
+      num2.classList.remove('show', 'fadeout');
+      num1.classList.add('show');
+    }, 350);
+  }, 2200);
+
+  // 1消失, 开始文字跳动 + 爱心飘落
+  setTimeout(() => {
+    num1.classList.add('fadeout');
+    setTimeout(() => {
+      num1.classList.remove('show', 'fadeout');
+      // 显示祝福文字区域
+      blessingWords.classList.add('visible');
+      // 启动爱心飘落
+      startHeartFalling(heartsArea);
+
+      // 逐字弹跳出现
+      const words = blessingWords.querySelectorAll('.blessing-word');
+      words.forEach((word, i) => {
+        setTimeout(() => {
+          word.classList.add('bounce-in');
+        }, i * 700);
+      });
+
+      // 大爱心出现
+      const totalDelay = words.length * 700 + 600;
+      setTimeout(() => {
+        bigHeartWrap.classList.add('show');
+      }, totalDelay);
+
+      // 底部出现
+      setTimeout(() => {
+        footer.classList.add('show');
+      }, totalDelay + 800);
+
+    }, 350);
+  }, 3200);
+}
+
+// ===== 爱心飘落 =====
+function startHeartFalling(container) {
+  const heartColors = ['#E88186', '#F2A6A9', '#E8989B', '#D4888A', '#F5C4B8', '#E8A0A4'];
+  let heartId = 0;
+  const hearts = [];
+
+  function createHeart() {
+    const heart = document.createElement('span');
+    heart.className = 'falling-heart';
+    heart.textContent = Math.random() > 0.5 ? '♥' : '❤';
+    heart.style.left = Math.random() * 90 + 5 + '%';
+    heart.style.fontSize = (16 + Math.random() * 28) + 'px';
+    heart.style.color = heartColors[Math.floor(Math.random() * heartColors.length)];
+    heart.style.animationDuration = (2.5 + Math.random() * 3.5) + 's';
+    heart.style.animationDelay = '0s';
+    heart.dataset.id = heartId++;
+
+    container.appendChild(heart);
+    hearts.push(heart);
+
+    // 动画结束后移除
+    const duration = parseFloat(heart.style.animationDuration) * 1000;
+    setTimeout(() => {
+      if (heart.parentNode) {
+        heart.remove();
+        const idx = hearts.indexOf(heart);
+        if (idx > -1) hearts.splice(idx, 1);
+      }
+    }, duration + 100);
+  }
+
+  // 快速生成一波爱心
+  for (let i = 0; i < 12; i++) {
+    setTimeout(() => createHeart(), i * 120);
+  }
+
+  // 持续生成
+  const interval = setInterval(() => {
+    if (hearts.length < 30) {
+      createHeart();
+    }
+  }, 350);
+
+  // 15秒后停止
+  setTimeout(() => {
+    clearInterval(interval);
+  }, 15000);
+}
+
+// ===== 启动动画序列 =====
+// 等入场动画基本完成后再开始倒计时
+setTimeout(() => {
+  startCountdown();
+}, 1800);
 </script>
 </body>
 </html>
