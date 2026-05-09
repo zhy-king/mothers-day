@@ -743,8 +743,6 @@ function openBlessing() {
 
   // 启动爱心鲜花飘落画布
   startFallCanvas();
-  // 启动外部祝福语漂浮
-  startFloatBlessings();
 
   // 倒计时开始
   setTimeout(() => countdownStart(), 300);
@@ -804,6 +802,8 @@ function showWords() {
   const totalDelay = lines.length * 650 + 500;
   setTimeout(() => {
     document.getElementById('finalHeart').classList.add('reveal');
+    // 大爱心出现后再启动外部祝福语漂浮
+    setTimeout(() => startFloatBlessings(), 600);
   }, totalDelay);
 }
 
