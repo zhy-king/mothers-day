@@ -279,18 +279,52 @@ body {
   z-index: 501;
 }
 
+/* ===== 倒计时（在大爱心上方）===== */
+.countdown-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+  z-index: 503;
+  margin-bottom: 8px;
+}
+.countdown-num {
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--rose-deep);
+  opacity: 0;
+  transform: scale(0.4);
+  transition: all 0.45s cubic-bezier(.22,.61,.36,1);
+}
+.countdown-num.pop {
+  opacity: 1;
+  transform: scale(1);
+  animation: numPop 0.45s cubic-bezier(.22,.61,.36,1);
+}
+.countdown-num.fade {
+  opacity: 0;
+  transform: scale(1.6);
+  transition: all 0.35s ease-in;
+}
+
+@keyframes numPop {
+  0% { transform: scale(0.4); }
+  55% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
 /* 大爱心容器 */
 .giant-heart-box {
   position: relative;
-  width: 340px;
-  height: 310px;
+  width: 350px;
+  height: 360px;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 502;
 }
 
-/* CSS 大爱心 */
+/* CSS 大爱心 - 更醒目 */
 .giant-heart {
   position: absolute;
   width: 100%;
@@ -301,13 +335,16 @@ body {
 .giant-heart::after {
   content: '';
   position: absolute;
-  top: 0;
-  width: 170px;
-  height: 270px;
-  border-radius: 170px 170px 0 0;
-  background: linear-gradient(180deg, rgba(232,152,155,0.18), rgba(212,136,138,0.08));
-  box-shadow: 0 0 80px rgba(212,136,138,0.1), inset 0 0 60px rgba(255,255,255,0.15);
-  border: 2px solid rgba(212,136,138,0.25);
+  top: 10px;
+  width: 175px;
+  height: 280px;
+  border-radius: 175px 175px 0 0;
+  background: linear-gradient(180deg, rgba(232,152,155,0.28), rgba(212,136,138,0.12), rgba(255,200,200,0.06));
+  box-shadow:
+    0 0 40px rgba(212,136,138,0.20),
+    0 0 100px rgba(212,136,138,0.12),
+    inset 0 0 80px rgba(255,255,255,0.18);
+  border: 2.5px solid rgba(212,136,138,0.40);
   border-bottom: none;
 }
 .giant-heart::before {
@@ -330,36 +367,32 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
+  padding: 10px 20px 20px;
   min-height: 260px;
+  width: 220px;
 }
 
-/* 倒计时数字 */
-.countdown-num {
-  font-size: 80px;
-  font-weight: 900;
-  color: var(--rose-deep);
-  opacity: 0;
+/* ===== 外部祝福语飘浮 ===== */
+.float-blessing {
   position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%) scale(0.4);
-  transition: all 0.45s cubic-bezier(.22,.61,.36,1);
-}
-.countdown-num.pop {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-  animation: numPop 0.45s cubic-bezier(.22,.61,.36,1);
-}
-.countdown-num.fade {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--rose);
+  pointer-events: none;
+  z-index: 500;
   opacity: 0;
-  transform: translate(-50%, -50%) scale(1.6);
-  transition: all 0.35s ease-in;
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(184,97,100,0.12);
+  animation: floatBlessing 4s ease-in-out forwards;
 }
 
-@keyframes numPop {
-  0% { transform: translate(-50%, -50%) scale(0.4); }
-  55% { transform: translate(-50%, -50%) scale(1.2); }
-  100% { transform: translate(-50%, -50%) scale(1); }
+@keyframes floatBlessing {
+  0%   { opacity: 0; transform: translate(0, 0) scale(0.5) rotate(-8deg); }
+  15%  { opacity: 0.9; transform: translate(8px, -18px) scale(1.05) rotate(3deg); }
+  35%  { opacity: 0.6; transform: translate(-5px, -35px) scale(0.95) rotate(-2deg); }
+  60%  { opacity: 0.35; transform: translate(12px, -55px) scale(0.85) rotate(5deg); }
+  85%  { opacity: 0.1; transform: translate(-8px, -75px) scale(0.7) rotate(-4deg); }
+  100% { opacity: 0; transform: translate(0, -95px) scale(0.6) rotate(0deg); }
 }
 
 /* ===== 祝福文字跳动 ===== */
@@ -578,24 +611,35 @@ body {
   <!-- 关闭按钮 -->
   <button class="close-btn" onclick="closeBlessing()">✕</button>
 
-  <!-- 大爱心 + 内容 -->
-  <div class="giant-heart-box">
-    <div class="giant-heart"></div>
-    <div class="heart-content" id="heartContent">
-      <!-- 倒计时数字 -->
+  <!-- ═══ 整体居中布局 ═══ -->
+  <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;z-index:502">
+
+    <!-- 倒计时 -->
+    <div class="countdown-bar">
       <span class="countdown-num" id="num3">3</span>
       <span class="countdown-num" id="num2">2</span>
       <span class="countdown-num" id="num1">1</span>
-      <!-- 祝福文字 -->
-      <div class="blessing-lines" id="blessingLines">
-        <span class="blessing-line">妈妈</span>
-        <span class="blessing-line">健康顺遂</span>
-        <span class="blessing-line">平平安安</span>
-        <span class="blessing-line emphasis">母亲节快乐</span>
-      </div>
-      <!-- 结尾爱心 -->
-      <span class="final-big-heart" id="finalHeart">❤️</span>
     </div>
+
+    <!-- 外部祝福语飘浮区 -->
+    <div id="floatBlessings" style="position:absolute;inset:0;pointer-events:none;z-index:500"></div>
+
+    <!-- 大爱心 + 内容 -->
+    <div class="giant-heart-box" id="giantHeartBox" style="opacity:0;transition:opacity 0.6s ease">
+      <div class="giant-heart"></div>
+      <div class="heart-content" id="heartContent">
+        <!-- 祝福文字 -->
+        <div class="blessing-lines" id="blessingLines">
+          <span class="blessing-line">妈妈</span>
+          <span class="blessing-line">健康顺遂</span>
+          <span class="blessing-line">平平安安</span>
+          <span class="blessing-line emphasis">母亲节快乐</span>
+        </div>
+        <!-- 结尾爱心 -->
+        <span class="final-big-heart" id="finalHeart">❤️</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -679,12 +723,13 @@ function showToast(text) {
 // ===== 打开祝福弹层 =====
 let fallAnimId = null;
 let fallTimer = null;
+let floatBlessTimer = null;
 
 function openBlessing() {
   const overlay = document.getElementById('blessingOverlay');
   overlay.classList.add('show');
 
-  // 重置所有元素
+  // 重置
   ['num3','num2','num1'].forEach(id => {
     const el = document.getElementById(id);
     el.classList.remove('pop', 'fade');
@@ -693,9 +738,14 @@ function openBlessing() {
   lines.forEach(l => l.classList.remove('bounce'));
   document.getElementById('blessingLines').classList.remove('visible');
   document.getElementById('finalHeart').classList.remove('reveal');
+  document.getElementById('giantHeartBox').style.opacity = '0';
+  // 清除旧的飘浮祝福语
+  document.querySelectorAll('.float-blessing').forEach(el => el.remove());
 
   // 启动爱心鲜花飘落画布
   startFallCanvas();
+  // 启动外部祝福语漂浮
+  startFloatBlessings();
 
   // 倒计时开始
   setTimeout(() => countdownStart(), 300);
@@ -704,7 +754,9 @@ function openBlessing() {
 function closeBlessing() {
   document.getElementById('blessingOverlay').classList.remove('show');
   if (fallAnimId) { cancelAnimationFrame(fallAnimId); fallAnimId = null; }
-  if (fallTimer) { clearTimeout(fallTimer); fallTimer = null; }
+  if (fallTimer) { clearInterval(fallTimer); fallTimer = null; }
+  if (floatBlessTimer) { clearInterval(floatBlessTimer); floatBlessTimer = null; }
+  document.querySelectorAll('.float-blessing').forEach(el => el.remove());
 }
 
 // ===== 倒计时 =====
@@ -712,6 +764,7 @@ function countdownStart() {
   const n3 = document.getElementById('num3');
   const n2 = document.getElementById('num2');
   const n1 = document.getElementById('num1');
+  const heartBox = document.getElementById('giantHeartBox');
 
   // 3
   setTimeout(() => n3.classList.add('pop'), 0);
@@ -726,11 +779,13 @@ function countdownStart() {
     setTimeout(() => { n2.classList.remove('pop','fade'); n1.classList.add('pop'); }, 350);
   }, 2000);
 
-  // 1 -> 文字
+  // 1 -> 显示大爱心 + 文字
   setTimeout(() => {
     n1.classList.add('fade');
     setTimeout(() => {
       n1.classList.remove('pop','fade');
+      // 显示大爱心框
+      heartBox.style.opacity = '1';
       showWords();
     }, 350);
   }, 3000);
@@ -849,6 +904,54 @@ function startFallCanvas() {
       items.push(createItem(fc));
     }
   }, 400);
+}
+
+// ===== 大爱心外部漂浮祝福语 =====
+function startFloatBlessings() {
+  const container = document.getElementById('floatBlessings');
+  if (!container) return;
+
+  const blessingPhrases = [
+    '永远爱你 ❤', '最美妈妈 ✨', '辛苦啦 🌸', '爱你一万年 💕',
+    '健康快乐 🌿', '幸福美满 💐', '妈妈最棒 🏆', '感恩有你 🌹',
+    '岁月静好 🍃', '温柔如你 💗', '甜蜜幸福 🍯', '万事如意 🎀',
+    '笑口常开 😊', '青春永驻 💖', '妈妈我爱你 💝', '你辛苦了 🫂',
+    '平安喜乐 🕊', '天天开心 🌻', '妈妈最美 👑', '谢谢妈妈 💌',
+  ];
+
+  function spawnOne() {
+    const text = blessingPhrases[Math.floor(Math.random() * blessingPhrases.length)];
+    const el = document.createElement('span');
+    el.className = 'float-blessing';
+    el.textContent = text;
+    // 围绕大爱心外围随机分布
+    const angle = Math.random() * Math.PI * 2;
+    const radius = 140 + Math.random() * 60;
+    const x = Math.cos(angle) * radius;
+    const y = Math.sin(angle) * radius;
+    el.style.left = `calc(50% + ${x}px)`;
+    el.style.top = `calc(50% + ${y}px)`;
+    el.style.fontSize = (13 + Math.random() * 10) + 'px';
+    el.style.animationDuration = (3.5 + Math.random() * 3) + 's';
+    el.style.color = ['#E88186','#D4888A','#E8989B','#C9A96E','#B86164','#E8A0A4'][Math.floor(Math.random()*6)];
+
+    container.appendChild(el);
+
+    // 动画结束后移除
+    setTimeout(() => { if (el.parentNode) el.remove(); }, 5000);
+  }
+
+  // 初始一波
+  for (let i = 0; i < 10; i++) {
+    setTimeout(() => spawnOne(), i * 150);
+  }
+
+  // 持续生成
+  floatBlessTimer = setInterval(() => {
+    if (document.querySelectorAll('.float-blessing').length < 25) {
+      spawnOne();
+    }
+  }, 600);
 }
 </script>
 </body>
